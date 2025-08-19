@@ -1,63 +1,50 @@
-Somali Regional State Youth Council (DDS) Website
+# Somali Regional State Youth Council (DDS) Website  
 
-This is a responsive website built for the Somali Regional State Youth Council (DDS).
-It provides news, events, programs, and contact information to empower youth across the Somali Region.
+This is a responsive website built for the **Somali Regional State Youth Council (DDS)**.  
+It provides news, events, programs, and contact information to empower youth across the Somali Region.  
 
-📂 Project Structure
+## 📂 Project Structure  
 
-index.html — Main website file with HTML, CSS, and JavaScript.
+- `index.html` — Main website file with HTML, CSS, and JavaScript.  
+- `logo.jpg` — Logo of the Youth Council (used in the header).  
+- `cover.jpg` — Hero section background image.  
+- `lead.jpg`, `team1.jpg`, `team2.jpg`, `team3.jpg` — Images used in the gallery section.  
 
-logo.jpg — Logo of the Youth Council (used in the header).
+## 🚀 Features  
 
-cover.jpg — Hero section background image.
+- **Responsive Design** — Works on desktop and mobile devices.  
+- **Programs Section** — Highlights training, advocacy, grants, and partnerships.  
+- **News & Announcements** — Admins can publish posts with images.  
+- **Events & Gallery** — Displays upcoming events and youth activity photos.  
+- **Contact Form** — Visitors can send messages (saved in local storage for demo).  
+- **Admin Panel (Demo)** — Allows admins to log in and publish posts.  
 
-lead.jpg, team1.jpg, team2.jpg, team3.jpg — Images used in the gallery section.
+## 🔑 Admin Panel Access  
 
-🚀 Features
+- **Username:** `...........`  
+- **Password:** `*********`  
 
-Responsive Design — Works on desktop and mobile devices.
+⚠️ Note: Authentication is only client-side for demo purposes. For production, implement secure server-side authentication.  
 
-Programs Section — Highlights training, advocacy, grants, and partnerships.
+## 🛠️ Technologies Used  
 
-News & Announcements — Admins can publish posts with images.
+- **HTML5**  
+- **CSS3** (Custom styling, responsive grid & flexbox)  
+- **JavaScript (Vanilla JS)** — Handles posts, contact form, and admin modal.  
+- **LocalStorage** — Stores posts and contact form messages locally.  
 
-Events & Gallery — Displays upcoming events and youth activity photos.
+## 📸 Screenshots  
 
-Contact Form — Visitors can send messages (saved in local storage for demo).
+Example gallery image (team meeting):  
+![Team Meeting](team1.jpg)  
 
-Admin Panel (Demo) — Allows admins to log in and publish posts.
+## 📥 Usage  
 
-🔑 Admin Panel Access
+1. Clone or download the project.  
+2. Place all files (`index.html`, `logo.jpg`, `cover.jpg`, `lead.jpg`, `team1.jpg`, etc.) in the same folder.  
+3. Open `index.html` in any modern browser.  
 
-Username: ........
+## 📌 Notes  
 
-Password: ********
-
-⚠️ Note: Authentication is only client-side for demo purposes. For production, implement secure server-side authentication.
-
-🛠️ Technologies Used
-
-HTML5
-
-CSS3 (Custom styling, responsive grid & flexbox)
-
-JavaScript (Vanilla JS) — Handles posts, contact form, and admin modal.
-
-LocalStorage — Stores posts and contact form messages locally.
-
-📸 Screenshots
-
-Example gallery image (team meeting):
-
-
-📥 Usage
-
-Clone or download the project.
-
-Place all files (index.html, logo.jpg, cover.jpg, lead.jpg, team1.jpg, etc.) in the same folder.
-
-Open index.html in any modern browser.
-
-📌 Notes
-
-Posts and messages are saved locally in the browser (LocalStorage). Data will not persist across different devices.
+- Posts and messages are saved **locally in the browser** (LocalStorage). Data will not persist across different devices.  
+  
