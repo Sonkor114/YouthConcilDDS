@@ -1,0 +1,403 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Somali Regional State Youth Council (DDS)</title>
+  <meta name="description" content="Official site for Somali Regional State Youth Council - news, events, programs, and contact." />
+  <style>
+    :root{
+      --brand-1:#0f4c5c; /* deep teal */
+      --brand-2:#3fb0ac; /* soft teal */
+      --accent:#ffd166; /* warm yellow */
+      --muted:#f4f7f8;
+      --text:#08323b;
+      --danger:#d9534f;
+      --glass: transparent;  /*rgba(255,255,255,0.85); */
+      --max-width:1100px;
+      font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+    }
+
+    *{box-sizing:border-box}
+    body{margin:0;background:linear-gradient(180deg,var(--muted),white);color:var(--text);line-height:1.45}
+    .container{max-width:var(--max-width);margin:0 auto;padding:1rem}
+
+    /* Header */
+    header{background:linear-gradient(90deg,var(--brand-1),var(--brand-2));color:white;position:sticky;top:0;z-index:30}
+    .hero{background:linear-gradient(90deg,var(--brand-1),var(--brand-2));color:white;}
+    .nav{display:flex;align-items:center;justify-content:space-between;padding:0.6rem 1rem}
+    .hero{display:flex;align-items:center;justify-content:space-between;padding:0.6rem 1rem}
+    .brand{display:flex;align-items:center;gap:.6rem}
+    .logo{width:44px;height:44px;border-radius:8px;background:var(--accent);display:grid;place-items:center;color:var(--brand-1);font-weight:700}
+    nav ul{display:flex;gap:0.75rem;align-items:center;margin:0;padding:0;list-style:none}
+    nav a{color:white;text-decoration:none;padding:0.45rem 0.6rem;border-radius:6px;font-weight:600}
+    nav a:hover{background:rgba(255,255,255,0.08)}
+    .cta{background:var(--accent);color:var(--brand-1);padding:0.4rem 0.7rem;border-radius:8px;font-weight:700}
+
+    /* mobile */
+    .hamburger{display:none;background:transparent;border:0;color:white;font-size:22px}
+    @media (max-width:880px){
+      nav ul{display:none;position:absolute;right:1rem;top:64px;background:linear-gradient(180deg,var(--brand-1),var(--brand-2));padding:0.6rem;border-radius:8px;flex-direction:column;width:200px}
+      .hamburger{display:inline-block}
+    }
+
+    /* Hero full screen */
+    .hero{
+      height:100vh;
+      background: url("cover.jpg") no-repeat center center/cover;
+      width: 100%;
+      display:grid;
+      grid-template-columns:1fr 420px;
+      gap:1.2rem;
+      align-items:center
+    }
+    .hero-card {
+        position: relative;
+    }
+  
+    .hero-card{background:var(--glass);padding:1.4rem;border-radius:14px;box-shadow:0 10px 30px rgba(3,50,59,0.08)}
+    .hero h1{margin:0 0 .4rem;font-size:clamp(1.4rem,2.6vw,2.2rem)}
+    .lead{color:rgba(8,50,59,0.85)}
+    .quick-actions{display:flex;gap:.6rem;margin-top:1rem}
+    @media (max-width:880px){
+      .hero{grid-template-columns:1fr;}
+      .hero-card{order:2}
+    }
+
+    /* Features */
+    .features{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:1rem}
+    .feature{background:white;padding:1rem;border-radius:10px;box-shadow:0 6px 18px rgba(3,50,59,0.04)}
+    .feature h4{margin:0 0 .4rem}
+    @media (max-width:880px){.features{grid-template-columns:repeat(1,1fr)}}
+
+    /* Posts */
+    #posts{margin-top:1.2rem}
+    .post{background:white;padding:1rem;border-radius:10px;margin-bottom:1rem;box-shadow:0 6px 14px rgba(3,50,59,0.04)}
+    .post h3{margin:.1rem 0}
+    .meta{font-size:.85rem;color:rgba(8,50,59,0.6)}
+
+    /* Events & gallery */
+    .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:1rem}
+    @media (max-width:880px){.grid-2{grid-template-columns:1fr}}
+
+    /* Contact */
+    .contact{background:white;padding:1rem;border-radius:10px;box-shadow:0 6px 18px rgba(3,50,59,0.04)}
+    label{display:block;margin-top:.6rem;font-weight:600}
+    input,textarea,select{width:100%;padding:.6rem;border:1px solid #e6eef0;border-radius:8px;margin-top:.3rem}
+    button{cursor:pointer;border:0;padding:.6rem 1rem;border-radius:8px}
+    .btn-primary{background:var(--brand-1);color:white}
+    .btn-outline{background:transparent;border:1px solid var(--brand-1);color:var(--brand-1)}
+
+    /* Footer */
+    footer{margin-top:2rem;padding:1.2rem 0;background:linear-gradient(90deg,var(--brand-2),var(--brand-1));color:white}
+    .footer-grid{display:grid;grid-template-columns:1fr 1fr 220px;gap:1rem;max-width:var(--max-width);margin:0 auto;padding:0 1rem}
+    @media (max-width:880px){.footer-grid{grid-template-columns:1fr}}
+
+    /* small helpers */
+    .muted{color:rgba(8,50,59,0.6)}
+    .right{display:flex;gap:.6rem;align-items:center}
+
+    /* modal */
+    .modal-backdrop{position:fixed;inset:0;background:rgba(2,10,12,0.45);display:none;place-items:center;padding:1rem}
+    .modal{background:white;padding:1rem;border-radius:10px;max-width:640px;width:100%}
+    .show{display:grid}
+
+    /* small touches */
+    .tag{display:inline-block;padding:.2rem .5rem;border-radius:999px;background:rgba(3,50,59,0.06);font-weight:700}
+    .tiny{font-size:.85rem}
+
+    /* image preview */
+    .image-preview{
+      margin-top:.6rem;
+      max-height:180px;
+      border-radius:8px;
+      display:none;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="nav container">
+      <div class="brand">
+        <div class="logo"><img src="logo.jpg" alt="image" style="width: 100%; border-radius: 15px;"></div>
+        <div>
+          <div style="font-weight:800">Somali Regional State Youth Council</div>
+          <div style="font-size:12px;opacity:.9">Dowlad Deegaanka Soomaalida</div>
+        </div>
+      </div>
+
+      <nav>
+        <button class="hamburger" aria-label="menu" id="hambBtn">☰</button>
+        <ul id="menuList">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#programs">Programs</a></li>
+          <li><a href="#events">Events</a></li>
+          <li><a href="#posts">News</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li><a href="#" id="adminBtn" class="cta">Admin</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- <main class="container" id="home"> -->
+    <!-- HERO -->
+    <section class="hero">
+      <!-- <div class="hero-card">
+        <h1>Empowering Youth • Building the Future</h1>
+        <p class="lead">The Somali Regional State Youth Council (DDS) supports youth programs, advocacy, and community-building initiatives across the region. Stay informed about events, projects, and opportunities.</p>
+        <div class="quick-actions">
+          <a href="#programs" class="btn-primary" style="text-decoration:none;color:white;border-radius:8px">Explore Programs</a>
+          <a href="#posts" class="btn-outline" style="text-decoration:none;color:var(--brand-1);border-radius:8px">Latest News</a>
+        </div>
+      </div>
+
+      <aside class="hero-card">
+        <h3>Quick Links</h3>
+        <ul style="padding-left:1rem">
+          <li class="tiny">Apply for training &gt; <span class="tag">Open</span></li>
+          <li class="tiny">Volunteer opportunities</li>
+          <li class="tiny">Youth grants & resources</li>
+        </ul>
+        <hr style="margin:1rem 0;border:none;border-top:1px solid #e6eef0" />
+        <div>
+          <strong>Contact Office</strong>
+          <div class="muted tiny">Phone: +251 90 000 00000</div>
+          <div class="muted tiny">Email: info@dds.example.org</div>
+        </div>
+      </aside> -->
+    </section>
+<div class="container">
+
+
+    <!-- FEATURES -->
+    <section class="features" id="programs">
+      <div class="feature"><h4>Training & Capacity Building</h4><p class="muted tiny">Workshops, vocational training, and leadership programs for youth across the region.</p></div>
+      <div class="feature"><h4>Policy & Advocacy</h4><p class="muted tiny">Engaging with regional leadership to advocate for youth-centered policies.</p></div>
+      <div class="feature"><h4>Events & Campaigns</h4><p class="muted tiny">Community events, awareness campaigns, and regional conferences.</p></div>
+      <div class="feature"><h4>Grants & Support</h4><p class="muted tiny">Small project grants and mentorship for promising youth initiatives.</p></div>
+      <div class="feature"><h4>Digital Resources</h4><p class="muted tiny">Guides, toolkits, and online learning materials.</p></div>
+      <div class="feature"><h4>Partnerships</h4><p class="muted tiny">Collaboration with NGOs, government, and private sector partners.</p></div>
+    </section>
+
+    <!-- POSTS -->
+    <section id="posts">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-top:1.2rem">
+        <h2>News & Announcements</h2>
+        <div class="tiny muted">Authorized admins can publish posts via the Admin panel.</div>
+      </div>
+      <div id="postsList" aria-live="polite"></div>
+    </section>
+
+    <!-- EVENTS & GALLERY -->
+    <section class="grid-2">
+      <div>
+        <h3 id="events">Upcoming Events</h3>
+        <div class="post"><h4>Regional Youth Summit</h4><div class="meta">Aug 30, 2025 • Jigjiga</div><p class="tiny muted">A 2-day summit focusing on skills, entrepreneurship, and networking.</p></div>
+        <div class="post"><h4>Volunteer Clean-up Day</h4><div class="meta">Sep 14, 2025 • Local communities</div><p class="tiny muted">Join us for community service and environmental awareness.</p></div>
+      </div>
+      <div>
+        <h3>Gallery</h3>
+        <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:0.5rem">
+          <div style="height:110px;background:linear-gradient(180deg,#fff,#f1f6f6);display:grid;place-items:center;border-radius:8px"><img src="/lead.jpg" alt="image" style="width: 100%;" ></div>
+          <div style="height:110px;background:linear-gradient(180deg,#fff,#f1f6f6);display:grid;place-items:center;border-radius:8px"><img src="/team1.jpg" alt="image" style="width: 100%;" ></div>
+          <div style="height:110px;background:linear-gradient(180deg,#fff,#f1f6f6);display:grid;place-items:center;border-radius:8px"><img src="/team2.jpg" alt="image" style="width: 100%;" ></div>
+          <div style="height:110px;background:linear-gradient(180deg,#fff,#f1f6f6);display:grid;place-items:center;border-radius:8px"><img src="/team3.jpg" alt="image" style="width: 100%;" ></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" style="margin-top:1.2rem">
+      <h3>Contact the Council</h3>
+      <div class="contact">
+        <form id="contactForm">
+          <label for="name">Full name</label><input id="name" required />
+          <label for="email">Email</label><input id="email" type="email" required />
+          <label for="subject">Subject</label><input id="subject" required />
+          <label for="message">Message</label><textarea id="message" rows="5" required></textarea>
+          <div style="margin-top:.8rem;display:flex;gap:.6rem;justify-content:flex-end">
+            <button type="reset" class="btn-outline">Clear</button>
+            <button type="submit" class="btn-primary">Send Message</button>
+          </div>
+        </form>
+        <div id="contactNote" style="display:none;margin-top:.8rem"></div>
+      </div>
+    </section>
+    </div>
+  <!-- </main> -->
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-grid">
+      <div><strong>Somali Regional State Youth Council (DDS)</strong><div class="muted tiny">Working for youth empowerment across the region.</div></div>
+      <div>
+        <div style="display:flex;flex-direction:column;gap:.4rem">
+          <div><strong>Useful</strong></div>
+          <a href="#programs" style="color:white;text-decoration:none">Programs</a>
+          <a href="#events" style="color:white;text-decoration:none">Events</a>
+          <a href="#posts" style="color:white;text-decoration:none">News</a>
+        </div>
+      </div>
+      <div><div><strong>Contact</strong></div><div class="muted tiny">Phone: +251 90 000 00000</div><div class="muted tiny">Email: info@dds.example.org</div></div>
+    </div>
+    <div style="text-align:center;padding-top:.8rem;color:rgba(255,255,255,0.9);font-size:.9rem">© <span id="year"></span> Somali Regional State Youth Council — All rights reserved.</div>
+  </footer>
+
+  <!-- ADMIN MODAL -->
+  <div class="modal-backdrop" id="adminModal">
+    <div class="modal" role="dialog" aria-labelledby="adminTitle">
+      <h3 id="adminTitle">Admin Panel</h3>
+      <div id="adminArea">
+        <div id="authBox">
+          <label for="adminUser">Username or Email</label>
+          <input id="adminUser" type="text" autocomplete="username" />
+          <label for="adminPass">Password</label>
+          <input id="adminPass" type="password" autocomplete="current-password" />
+          <div style="margin-top:.8rem;display:flex;gap:.6rem;justify-content:flex-end">
+            <button class="btn-outline" id="closeAdmin">Close</button>
+            <button class="btn-primary" id="authBtn">Sign in</button>
+          </div>
+          <div class="muted tiny" style="margin-top:.6rem">Note: Demo uses client-side auth. For production, implement secure server-side auth.</div>
+        </div>
+
+        <div id="publishBox" style="display:none">
+          <label>Post Title</label><input id="postTitle" />
+          <label>Summary</label><input id="postSummary" />
+          <label>Content</label><textarea id="postContent" rows="6"></textarea>
+          <label>Upload Image</label>
+          <input type="file" id="postImage" accept="image/*" />
+          <img id="imagePreview" class="image-preview" />
+          <div style="margin-top:.8rem;display:flex;gap:.6rem;justify-content:flex-end">
+            <button class="btn-outline" id="signOut">Sign out</button>
+            <button class="btn-primary" id="publishBtn">Publish</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    /* Small interactive behaviors */
+    document.getElementById('year').textContent = new Date().getFullYear();
+    const menuBtn=document.getElementById('hambBtn');const menu=document.getElementById('menuList');
+    menuBtn.addEventListener('click',()=>{menu.classList.toggle('open');if(menu.style.display==='flex'||menu.style.display==='block')menu.style.display='';else menu.style.display='block';});
+
+    const POSTS_KEY='dds_posts_v1';const ADMIN_USER = 'admin'; // or use your email
+    const ADMIN_PW='DDSadmin2025';
+    function loadPosts(){const raw=localStorage.getItem(POSTS_KEY);if(!raw) return [];try{return JSON.parse(raw);}catch(e){return []}}
+    function savePosts(posts){localStorage.setItem(POSTS_KEY,JSON.stringify(posts));}
+
+    function renderPosts(){
+      const list=document.getElementById('postsList');list.innerHTML='';
+      const posts=loadPosts().sort((a,b)=>new Date(b.date)-new Date(a.date));
+      if(posts.length===0){list.innerHTML='<div class="post"><h3>No posts yet</h3><p class="muted">Check back later.</p></div>';return}
+      posts.forEach(p=>{
+        const el=document.createElement('article');el.className='post';
+       
+        el.innerHTML = `
+          <h3>${escapeHtml(p.title)}</h3>
+          <div class="meta">${new Date(p.date).toLocaleString()}</div>
+          <p class="tiny muted">${escapeHtml(p.summary)}</p>
+          ${p.image ? `<img src="${p.image}" style="max-width:100%;border-radius:8px;margin:.6rem 0"/>` : ''}
+          <div style="margin-top:.6rem">${nl2br(escapeHtml(p.content))}</div>
+        `;
+        list.appendChild(el);
+      });
+    }
+
+    function nl2br(s){ return s.replace(/\n/g,'<br/>'); }
+    function escapeHtml(str){ return String(str).replace(/[&<>"']/g,function(tag){const chars={'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'};return chars[tag]||tag;}); }
+
+    // Admin modal actions
+    const adminBtn=document.getElementById('adminBtn');
+    const adminModal=document.getElementById('adminModal');
+    const closeAdmin=document.getElementById('closeAdmin');
+    const authBtn=document.getElementById('authBtn');
+    const adminPass=document.getElementById('adminPass');
+    const authBox=document.getElementById('authBox');
+    const publishBox=document.getElementById('publishBox');
+    const publishBtn=document.getElementById('publishBtn');
+    const signOut=document.getElementById('signOut');
+
+    authBtn.addEventListener('click',()=>{
+      const user = document.getElementById('adminUser').value.trim();
+      const pass = document.getElementById('adminPass').value;
+      if(user === ADMIN_USER && pass === ADMIN_PW){
+        authBox.style.display='none';
+        publishBox.style.display='block';
+      } else {
+        alert('Invalid username or password.');
+      }
+    });
+
+    adminBtn.addEventListener('click',(e)=>{
+      e.preventDefault();
+      adminModal.classList.add('show');
+      adminModal.style.display='grid';
+      document.getElementById('adminUser').value='';
+      adminPass.value='';
+      document.getElementById('adminUser').focus();
+    });
+    closeAdmin.addEventListener('click',()=>{adminModal.classList.remove('show');adminModal.style.display='none';});
+
+    signOut.addEventListener('click',()=>{publishBox.style.display='none';authBox.style.display='block';adminPass.value='';});
+
+    // Image preview
+    document.getElementById('postImage').addEventListener('change',(e)=>{
+      const file=e.target.files[0];
+      const preview=document.getElementById('imagePreview');
+      if(file){preview.src=URL.createObjectURL(file);preview.style.display='block';}
+      else{preview.style.display='none';}
+    });
+
+    // Publish post with image
+    publishBtn.addEventListener('click',()=>{
+      const t=document.getElementById('postTitle').value.trim();
+      const s=document.getElementById('postSummary').value.trim();
+      const c=document.getElementById('postContent').value.trim();
+      const file=document.getElementById('postImage').files[0];
+
+      if(!t||!c) return alert('Please provide a title and content.');
+
+      const reader=new FileReader();
+      reader.onload=function(e){
+        const imgData=e.target.result;
+        const posts=loadPosts();
+        posts.push({title:t,summary:s||'',content:c,image:imgData||'',date:new Date().toISOString()});
+        savePosts(posts);renderPosts();
+
+        // reset fields
+        document.getElementById('postTitle').value='';
+        document.getElementById('postSummary').value='';
+        document.getElementById('postContent').value='';
+        document.getElementById('postImage').value='';
+        document.getElementById('imagePreview').style.display='none';
+
+        alert('Post published with image (local demo).');
+      };
+      if(file) reader.readAsDataURL(file);
+      else reader.onload({target:{result:''}});
+    });
+
+    // Close modal on backdrop click
+    adminModal.addEventListener('click',(e)=>{if(e.target===adminModal){adminModal.classList.remove('show');adminModal.style.display='none';}});
+
+    // Contact form (demo)
+    const contactForm=document.getElementById('contactForm');
+    contactForm.addEventListener('submit',(e)=>{
+      e.preventDefault();
+      const data={name:document.getElementById('name').value.trim(),email:document.getElementById('email').value.trim(),subject:document.getElementById('subject').value.trim(),message:document.getElementById('message').value.trim(),date:new Date().toISOString()};
+      const KEY='dds_contact_messages_v1';
+      const msgs=JSON.parse(localStorage.getItem(KEY)||'[]');
+      msgs.push(data);localStorage.setItem(KEY,JSON.stringify(msgs));
+      document.getElementById('contactNote').style.display='block';
+      document.getElementById('contactNote').textContent='Your message has been saved (Demo only).';
+      contactForm.reset();
+    });
+
+    document.addEventListener('DOMContentLoaded',()=>{renderPosts();});
+    document.addEventListener('keydown',(e)=>{if(e.ctrlKey&&e.shiftKey&&e.key.toLowerCase()==='a'){adminModal.classList.add('show');adminModal.style.display='grid';adminPass.focus();}});
+  </script>
+</body>
+</html>
