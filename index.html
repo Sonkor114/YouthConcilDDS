@@ -3,6 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <link rel="shortcut icon" href="/logo.jpg" type="image/x-icon">
   <title>Somali Regional State Youth Council (DDS)</title>
   <meta name="description" content="Official site for Somali Regional State Youth Council - news, events, programs, and contact." />
   <style>
@@ -71,7 +72,19 @@
     @media (max-width:880px){.features{grid-template-columns:repeat(1,1fr)}}
 
     /* Posts */
-    #posts{margin-top:1.2rem}
+    #posts {
+      margin-top: 1.2rem;
+      background: linear-gradient(90deg, #f4f7f8 80%, #e6eef0 100%);
+      padding-bottom: 1.5rem;
+      border-radius: 12px;
+      /* Remove width, position, left, right, margin-left, margin-right, box-sizing */
+    }
+    @media (max-width: 1100px) {
+      #posts {
+        padding-left: 0;
+        padding-right: 0;
+      }
+    }
     .post{background:white;padding:1rem;border-radius:10px;margin-bottom:1rem;box-shadow:0 6px 14px rgba(3,50,59,0.04)}
     .post h3{margin:.1rem 0}
     .meta{font-size:.85rem;color:rgba(8,50,59,0.6)}
@@ -86,10 +99,48 @@
     input,textarea,select{width:100%;padding:.6rem;border:1px solid #e6eef0;border-radius:8px;margin-top:.3rem}
     button{cursor:pointer;border:0;padding:.6rem 1rem;border-radius:8px}
     .btn-primary{background:var(--brand-1);color:white}
-    .btn-outline{background:transparent;border:1px solid var(--brand-1);color:var(--brand-1)}
+    .btn-outline {
+      background: transparent;
+      border: 1.5px solid var(--brand-1);
+      color: var(--brand-1);
+      transition: 
+        background 0.18s,
+        color 0.18s,
+        box-shadow 0.18s,
+        border-color 0.18s;
+      cursor: pointer;
+      position: relative;
+      z-index: 1;
+      overflow: hidden;
+    }
+    .btn-outline:hover, .btn-outline.active {
+      background: linear-gradient(90deg, var(--brand-2), var(--brand-1));
+      color: #fff;
+      border-color: var(--brand-2);
+      box-shadow: 0 2px 12px rgba(63,176,172,0.13);
+      transition: background 0.18s, color 0.18s, box-shadow 0.18s, border-color 0.18s;
+    }
+    .btn-outline:active {
+      background: var(--accent);
+      color: var(--brand-1);
+      border-color: var(--accent);
+      box-shadow: 0 1px 6px rgba(255,209,102,0.13);
+    }
 
     /* Footer */
-    footer{margin-top:2rem;padding:1.2rem 0;background:linear-gradient(90deg,var(--brand-2),var(--brand-1));color:white}
+    footer {
+      margin-top:2rem;
+      padding:1.2rem 0;
+      background:linear-gradient(90deg,var(--brand-2),var(--brand-1));
+      color:white;
+      width: 100vw;
+      position: relative;
+      left: 50%;
+      right: 50%;
+      margin-left: -50vw;
+      margin-right: -50vw;
+      box-sizing: border-box;
+    }
     .footer-grid{display:grid;grid-template-columns:1fr 1fr 220px;gap:1rem;max-width:var(--max-width);margin:0 auto;padding:0 1rem}
     @media (max-width:880px){.footer-grid{grid-template-columns:1fr}}
 
@@ -132,7 +183,7 @@
           <li><a href="#home">Home</a></li>
           <li><a href="#programs">Programs</a></li>
           <li><a href="#events">Events</a></li>
-          <li><a href="#posts">News</a></li>
+          <li><a href="#posts">Posts</a></li>
           <li><a href="#contact">Contact</a></li>
           <li><a href="#" id="adminBtn" class="cta">Admin</a></li>
         </ul>
@@ -143,30 +194,21 @@
   <!-- <main class="container" id="home"> -->
     <!-- HERO -->
     <section class="hero">
-      <!-- <div class="hero-card">
-        <h1>Empowering Youth • Building the Future</h1>
-        <p class="lead">The Somali Regional State Youth Council (DDS) supports youth programs, advocacy, and community-building initiatives across the region. Stay informed about events, projects, and opportunities.</p>
-        <div class="quick-actions">
-          <a href="#programs" class="btn-primary" style="text-decoration:none;color:white;border-radius:8px">Explore Programs</a>
-          <a href="#posts" class="btn-outline" style="text-decoration:none;color:var(--brand-1);border-radius:8px">Latest News</a>
-        </div>
-      </div>
-
-      <aside class="hero-card">
-        <h3>Quick Links</h3>
-        <ul style="padding-left:1rem">
-          <li class="tiny">Apply for training &gt; <span class="tag">Open</span></li>
-          <li class="tiny">Volunteer opportunities</li>
-          <li class="tiny">Youth grants & resources</li>
-        </ul>
-        <hr style="margin:1rem 0;border:none;border-top:1px solid #e6eef0" />
-        <div>
-          <strong>Contact Office</strong>
-          <div class="muted tiny">Phone: +251 90 000 00000</div>
-          <div class="muted tiny">Email: info@dds.example.org</div>
-        </div>
-      </aside> -->
     </section>
+    <div class="container">
+    <!-- HERO-CARD MOVED HERE -->
+    <div class="hero-card" id="infoCard" style="margin-top:2rem; margin-bottom:2rem;">
+      <div id="infoContent">
+        <img src="about.jpg" alt="About us" style="width:100%;max-width:320px;border-radius:10px;margin-bottom:.8rem">
+        <h1>About Us</h1>
+        <p class="lead">The Somali Regional State Youth Council (DDS) is dedicated to empowering youth, fostering leadership, and supporting community initiatives across the Somali region.</p>
+      </div>
+      <div style="display:flex;gap:1rem;align-items:center;margin-top:1.2rem">
+        <button class="btn-outline" id="aboutBtn" style="flex:1">About Us</button>
+        <button class="btn-outline" id="visionBtn" style="flex:1">Vision</button>
+        <button class="btn-outline" id="missionBtn" style="flex:1">Mission</button>
+      </div>
+    </div>
 <div class="container">
 
 
@@ -263,7 +305,7 @@
 
         <div id="publishBox" style="display:none">
           <label>Post Title</label><input id="postTitle" />
-          <label>Summary</label><input id="postSummary" />
+          <label>Summary</label><input id="postSummary" /> <!-- Add this line -->
           <label>Content</label><textarea id="postContent" rows="6"></textarea>
           <label>Upload Image</label>
           <input type="file" id="postImage" accept="image/*" />
@@ -398,6 +440,53 @@
 
     document.addEventListener('DOMContentLoaded',()=>{renderPosts();});
     document.addEventListener('keydown',(e)=>{if(e.ctrlKey&&e.shiftKey&&e.key.toLowerCase()==='a'){adminModal.classList.add('show');adminModal.style.display='grid';adminPass.focus();}});
+
+    // Hero info switcher with active button highlight
+    const infoContent = document.getElementById('infoContent');
+    const aboutBtn = document.getElementById('aboutBtn');
+    const visionBtn = document.getElementById('visionBtn');
+    const missionBtn = document.getElementById('missionBtn');
+    const btns = [aboutBtn, visionBtn, missionBtn];
+
+    function setActive(btn) {
+      btns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+    }
+
+    aboutBtn.onclick = function() {
+      infoContent.innerHTML = `
+        <img src="about.jpg" alt="About us" style="width:100%;max-width:320px;border-radius:10px;margin-bottom:.8rem">
+        <h1>About Us</h1>
+        <p class="lead">The Somali Regional State Youth Council (DDS) is dedicated to empowering youth, fostering leadership, and supporting community initiatives across the Somali region.</p>
+      `;
+      setActive(aboutBtn);
+    };
+    visionBtn.onclick = function() {
+      infoContent.innerHTML = `
+        <img src="vision.jpg" alt="Vision" style="width:100%;max-width:320px;border-radius:10px;margin-bottom:.8rem">
+        <h1>Our Vision</h1>
+        <p class="lead">To see a vibrant, innovative, and united youth community actively shaping the future of the Somali Regional State.</p>
+      `;
+      setActive(visionBtn);
+    };
+    missionBtn.onclick = function() {
+      infoContent.innerHTML = `
+        <img src="mission.jpg" alt="Mission" style="width:100%;max-width:320px;border-radius:10px;margin-bottom:.8rem">
+        <h1>Our Mission</h1>
+        <p class="lead">To provide opportunities, resources, and advocacy for youth development, leadership, and social impact throughout the region.</p>
+      `;
+      setActive(missionBtn);
+    };
+    // Set About Us as active by default
+    setActive(aboutBtn);
+
+    // Scroll to top when Home is clicked
+    document.querySelector('a[href="#home"]').addEventListener('click', function(e) {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      document.getElementById('home').scrollIntoView({ behavior: 'smooth' });
+    });
+
   </script>
 </body>
 </html>
